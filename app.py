@@ -2,7 +2,7 @@ from flask import Flask,request
 from smartphonedb import SmatrphoneDb
 from cartdb import CartDb
 app = Flask(__name__)
-db=SmatrphoneDb('smartphone_api/db.json')
+db=SmatrphoneDb('db.json')
 add_cards=CartDb()
 
 #1
@@ -16,7 +16,7 @@ def get_brand1():
 @app.route('/smartphone/<brand>')
 def get_product_by_brand1(brand):
     """Get all grocery by type"""
-    return {db.get_product_by_brand(brand=brand)}
+    return {"products": db.get_product_by_brand(brand=brand)}
 #3
 @app.route('/smartphone/<brand>/<int:idx>')
 def getPhone(brand,idx) -> dict:
