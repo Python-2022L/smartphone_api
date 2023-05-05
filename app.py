@@ -16,7 +16,7 @@ def get_brand1():
 @app.route('/smartphone/<brand>')
 def get_product_by_brand1(brand):
     """Get all grocery by type"""
-    return db.get_product_by_brand(brand=brand)
+    return {db.get_product_by_brand(brand=brand)}
 #3
 @app.route('/smartphone/<brand>/<int:idx>')
 def getPhone(brand,idx) -> dict:
