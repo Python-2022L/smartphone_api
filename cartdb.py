@@ -2,7 +2,7 @@ from tinydb import TinyDB, Query
 class CartDb:
 
     def __init__(self):
-        self.order_db = TinyDB('cart.json', indent=4)
+        self.order_db = TinyDB('smartphone_api/cart.json', indent=4)
         self.query=Query()
        
     

@@ -2,7 +2,7 @@ from flask import Flask,request
 from smartphonedb import SmatrphoneDb
 from cartdb import CartDb
 app = Flask(__name__)
-db=SmatrphoneDb('db.json')
+db=SmatrphoneDb('smartphone_api/db.json')
 add_cards=CartDb()
 
 #1
