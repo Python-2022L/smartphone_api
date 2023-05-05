@@ -23,7 +23,7 @@ def getPhone(brand,idx) -> dict:
     """
     Return phone data by brand
     """
-    return {"product": list(db.get_product(brand=brand,id=idx))}
+    return {"product": db.get_product(brand=brand,id=idx)}
 
 #4
 @app.route('/smartphone/<brand>',methods=['POST'])
@@ -48,9 +48,11 @@ def add():
     company=data['company']
     add_cards.add_order(chat_id=chat_id,product_id=product_id,company=company)
     return {"status":"success"}
+
 @app.route('/smartphone/getorder/<chat_id>')
-def get_ord(chat_id):
-    return {"get_order":list(add_cards.get_order(chat_id=chat_id))}
+def get_ord(chat_id)->dict:
+    return {"get_order": add_cards.get_order(chat_id=int(chat_id))}
+
 @app.route('/smartphone/clearorder',methods=['POST'])
 def clear():
     data = request.get_json()
